@@ -1,0 +1,11 @@
+{% block content %}
+<i><a href="{% url 'book_list' %}">Home</a></i>
+
+<i>Do you want delete this file ? => {{ del_book.title }}</i>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+
+
+{% endblock%}

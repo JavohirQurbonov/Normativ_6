@@ -1,0 +1,11 @@
+{% block content %}
+<i><a href="{% url 'product_list' %}">Home</a></i>
+
+<h2>Title:{{ book.title }}</h2>
+<p>Author:{{ book.author }}</p>
+<p>Pages:{{ book.pages }}</p>
+<p>Price:{{ book.price }}</p>
+<button type="submit"><a href="{% url 'update' book.pk %}">Update</a></button>
+<button><a href="{% url 'delete' book.pk%}">Delete</a></button>
+
+{% endblock%}

@@ -1,0 +1,10 @@
+{% block content %}
+
+  <h1>Categories</h1>
+  {% for c in category %}
+  <ul>
+    <li><a href="{% url 'category_products' c.pk %}">{{ c }}</a></li>
+  </ul>
+  {% endfor %}
+
+{% endblock %}

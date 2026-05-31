@@ -1,0 +1,9 @@
+{% block content %}
+    {% for p in products %}
+        <h3>Name:<i>{{ p.name }}</i></h3>
+        <p>Description:{{ p.description }}</p>
+        <p>Price:{{ p.price }}</p>
+        <p>Quantity:{{ p.quantity }}</p>
+        <p>Created_at:{{ p.created_at }}</p>
+    {% endfor %}
+{% endblock %}

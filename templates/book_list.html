@@ -1,0 +1,11 @@
+{% block content %}
+    <h1><i>Books</i></h1>
+    <button><a href="{% url 'create' %}">Create book</a></button>
+    {% for book in book_list %}
+        <h2>Title:{{book.title}}</h2>
+        <p>Author:{{ book.author }}</p>
+        <p>Pages:{{ book.pages }}</p>
+        <p>Price:{{ book.price }}</p>
+        <button type="submit"><a href="{% url 'detail' book.pk %}">Detail</a></button>
+    {% endfor %}
+{% endblock %}
