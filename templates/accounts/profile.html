@@ -6,6 +6,14 @@
 <p><b>Email:</b> {{ request.user.email }}</p>
 <p><b>Phone number:</b> {{ request.user.phone_number }}</p>
 
+{% if group.name == 'Managers' %}
+    <p>Sizning group ingiz: <b>{{ group.name }}</b></p>
+    <a href="#">Manager panel</a>
+{% elif  group.name == 'Editors' %}
+    <p>Sizning group ingiz: <b>{{ group.name }}</b></p>
+    <a href="#">Editor panel</a>
+{% endif %}
+
 <a href="{% url 'logout' %}">Logout</a>
 
 {% endblock %}

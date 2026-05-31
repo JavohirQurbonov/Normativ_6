@@ -38,4 +38,5 @@ def logout_view(request):
 
 @login_required
 def profile_view(request):
-    return render(request,'accounts/profile.html')
+    group = request.user.groups.first()
+    return render(request,'accounts/profile.html',{'group':group})
