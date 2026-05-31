@@ -25,9 +25,9 @@ def login_view(request):
             user = authenticate(username=username,password=password)
             if user is not None:
                 login(request,user)
-                return redirect('register')
-            else:
                 return redirect('product_list')
+            else:
+                return redirect('register')
     else:
         form = LoginForm()
     return render(request,'accounts/login_page.html',{'form':form})
