@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from accounts.forms import RegisterForm, LoginForm
 
@@ -34,3 +35,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('product_list')
+
+@login_required
+def profile_view(request):
+    return render(request,'accounts/profile.html')

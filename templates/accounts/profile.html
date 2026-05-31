@@ -1,0 +1,11 @@
+{% block content %}
+
+<h1>Profile sahifa</h1>
+
+<p><b>Username:</b> {{ request.user.username }}</p>
+<p><b>Email:</b> {{ request.user.email }}</p>
+<p><b>Phone number:</b> {{ request.user.phone_number }}</p>
+
+<a href="{% url 'logout' %}">Logout</a>
+
+{% endblock %}
