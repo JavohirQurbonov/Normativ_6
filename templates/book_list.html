@@ -1,6 +1,8 @@
 {% block content %}
     <h1><i>Books</i></h1>
+    {% if perms.warehouse.add_product %}
     <button><a href="{% url 'create' %}">Create book</a></button>
+    {% endif %}
     {% for book in book_list %}
         <h2>Title:{{book.title}}</h2>
         <p>Author:{{ book.author }}</p>

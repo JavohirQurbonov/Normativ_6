@@ -1,4 +1,5 @@
 from django.contrib.messages import success
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from warehouse.models import Product, Category, Book
 from warehouse.forms import ContactForm, CreateBookForm, UpdateBookForm
@@ -44,8 +45,11 @@ def detail_view(request,pk):
     return render(request,'detail.html',{'book':book})
 
 def create_view(request):
+    if not request.user.has_perm('warehouse.add_book'):
+        return HttpResponse("Sizda ruxsat yo'q")
+
     if request.method == 'POST':
-        form = CreateBookForm(request.POST or None)
+        form = CreateBookForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('book_list')
