@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from warehouse.models import Product, Category, Book
 from warehouse.forms import ContactForm, CreateBookForm, UpdateBookForm
+from warehouse.tasks import add
 
 
 # Create your views here.
@@ -37,6 +38,7 @@ def contact(request):
 # ---------------------------CRUD---------------------
 
 def book_list(request):
+    print(add.delay(9,8))
     books = Book.objects.all()
     return render(request,'book_list.html',{'book_list':books})
 
